@@ -46,6 +46,13 @@ describe('Set', function(){
 
             set.members.should.eql([1]);
         });
+
+        it('adds to a list of members', function(){
+            set.add(1);
+            set.add(2);
+
+            set.members.should.eql([1, 2]);
+        });
     });
 });
 
