@@ -53,6 +53,13 @@ describe('Set', function(){
 
             set.members.should.eql([1, 2]);
         });
+
+        it('doesnt allow duplicates', function(){
+            set.add(1);
+            set.add(1);
+
+            set.members.should.eql([1]);
+        });
     });
 });
 
