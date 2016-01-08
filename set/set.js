@@ -1,8 +1,9 @@
 function Set () {
+    this.members = [];
 }
 
 Set.prototype.add = function(item) {
-    this.members = [1];
+    this.members.push(item);
 }
 
 
