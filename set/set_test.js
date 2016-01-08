@@ -31,14 +31,20 @@ var expect = require('chai').should(),
     Set    = require('./set.js').Set;
 
 describe('Set', function(){
+    var set;
+
     beforeEach(function(){
+        set = new Set();
     });
 
     after(function(){
     });
 
-    describe('', function(){
-        it('', function(){
+    describe('add', function(){
+        it('adds a new member to the set', function(){
+            set.add(1);
+
+            set.members.should.eql([1]);
         });
     });
 });
