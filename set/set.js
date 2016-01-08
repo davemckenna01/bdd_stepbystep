@@ -5,6 +5,8 @@ function Set () {
 Set.prototype.add = function(item) {
     var itemIsMember;
 
+    if (typeof item !== 'number') return;
+
     itemIsMember = false;
 
     for (var i = 0; i < this.members.length; i++) {
