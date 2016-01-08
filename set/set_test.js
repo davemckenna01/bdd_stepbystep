@@ -60,6 +60,12 @@ describe('Set', function(){
 
             set.members.should.eql([1]);
         });
+
+        it('only allows numbers', function(){
+            set.add('one');
+
+            set.members.should.be.empty;
+        });
     });
 });
 
