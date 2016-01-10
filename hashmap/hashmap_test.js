@@ -33,22 +33,32 @@ map.delte() deletes a value
 
 */
 
-var expect = require('chai').should(),
-    sinon  = require('sinon'),
-    Set    = require('./set.js').HashMap;
+var expect  = require('chai').should(),
+    sinon   = require('sinon'),
+    HashMap = require('./hashmap.js').HashMap;
 
 describe('HashMap', function(){
     var hashmap;
 
     beforeEach(function(){
-        hashmap = new HashMap();
     });
 
     after(function(){
     });
 
     describe('._hash', function(){
-        it('', function(){
+        it('returns a number between 0 and 9', function(){
+            var key,
+                hash;
+
+            for (var i = 0; i < 100; i++) {
+                key = Math.random().toString(36).slice(2)
+
+                hash = HashMap._hash(key);
+
+                hash.should.be.a('number')
+                hash.should.be.within(0, 9);
+            }
         });
     });
 });
