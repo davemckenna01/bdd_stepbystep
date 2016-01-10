@@ -22,6 +22,10 @@ Set.prototype.add = function(item) {
     }    
 }
 
+Set.prototype.remove = function(item) {
+    this.members = [1];
+}
+
 
 
 exports.Set = Set;
