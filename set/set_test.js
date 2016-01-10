@@ -83,6 +83,15 @@ describe('Set', function(){
 
             set.members.should.eql([]);
         });
+
+        it('removes from the middle', function(){
+            set.add(1);
+            set.add(2);
+            set.add(3);
+            set.remove(2);
+
+            set.members.should.eql([1,3]);
+        });
     });
 });
 
