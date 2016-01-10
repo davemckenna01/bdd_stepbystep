@@ -23,7 +23,13 @@ Set.prototype.add = function(item) {
 }
 
 Set.prototype.remove = function(item) {
-    this.members = [1];
+    for (var i = 0; i < this.members.length; i++) {
+        if (item === this.members[i]) {
+            this.members = this.members.slice(0, i)
+                            .concat(this.members.slice(i + 1));
+            break;
+        }
+    }
 }
 
 
