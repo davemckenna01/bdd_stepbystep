@@ -76,6 +76,13 @@ describe('Set', function(){
 
             set.members.should.eql([1]);
         });
+
+        it('handles sets of 1', function(){
+            set.add(1);
+            set.remove(1);
+
+            set.members.should.eql([]);
+        });
     });
 });
 
