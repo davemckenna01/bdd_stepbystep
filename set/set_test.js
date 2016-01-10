@@ -67,5 +67,15 @@ describe('Set', function(){
             set.members.should.be.empty;
         });
     });
+
+    describe('remove', function(){
+        it('removes a member from the set', function(){
+            set.add(1);
+            set.add(2);
+            set.remove(2);
+
+            set.members.should.eql([1]);
+        });
+    });
 });
 
