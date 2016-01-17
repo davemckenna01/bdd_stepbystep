@@ -122,5 +122,20 @@ describe('HashMap', function(){
             }
         });
     });
+
+    describe('set', function(){
+        it('adds items as linked list node', function(){
+            var hashmap,
+                hash;
+
+            hashmap = new HashMap();
+
+            hashmap.set('foo', 'bar');
+
+            hashmap._items.should.include({
+                key: 'foo', value: 'bar', next: null
+            });
+        });
+    });
 });
 
