@@ -106,6 +106,21 @@ describe('HashMap', function(){
             med.should.be.within(95, 105);
             high.should.be.within(110, 120);
         });
+
+        it('is deterministic', function(){
+            var key,
+                hash1,
+                hash2;
+
+            for (var i = 0; i < 5; i++) {
+                key = Math.random().toString(36).slice(2);
+
+                hash1 = HashMap._hash(key);
+                hash2 = HashMap._hash(key);
+
+                hash1.should.eq(hash2);
+            }
+        });
     });
 });
 
