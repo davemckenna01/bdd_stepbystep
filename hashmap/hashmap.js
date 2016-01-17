@@ -1,5 +1,5 @@
 function HashMap() {
-
+    this._items = [];
 }
 
 HashMap._hash = function (key) {
@@ -17,15 +17,27 @@ HashMap._hash = function (key) {
     return parseInt(hash);
 }
 
-HashMap.prototype.set = function (key) {
-    this._items = [];
-    
-    this._items[HashMap._hash(key)] = {
-                            key: 'a', value: 'foo', next:
-                                {
-                                    key: 'k', value: 'bar', next: null
-                                }
-                        };
+HashMap.prototype.set = function (key, value) {
+    var index,
+        current_node;
+
+    index = HashMap._hash(key);
+
+    if (this._items[index]) {
+        current_node = this._items[index];
+
+        while (current_node.next) {
+            current_node = current_node.next;
+        }
+
+        current_node.next = {
+            key: key, value: value, next: null
+        };
+    } else {
+        this._items[index] = {
+            key: key, value: value, next: null
+        };
+    }
 }
 
 exports.HashMap = HashMap;
