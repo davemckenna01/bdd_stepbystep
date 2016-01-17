@@ -148,6 +148,26 @@ describe('HashMap', function(){
             hashmap._items[HashMap._hash('foo')]
                     .should.eql({key: 'foo', value: 'bar', next: null});
         });
+
+        it('handles collisions', function(){
+            var hashmap,
+                hash;
+
+            hashmap = new HashMap();
+
+            hashmap.set('a', 'foo'); // a => 97 => 7
+            hashmap.set('k', 'bar'); // k => 107 => 7
+
+            hashmap._items[7]
+                    .should.eql(
+                        {
+                            key: 'a', value: 'foo', next:
+                                {
+                                    key: 'k', value: 'bar', next: null
+                                }
+                        }
+                    );
+        });        
     });
 });
 
