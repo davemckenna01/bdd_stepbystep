@@ -136,6 +136,18 @@ describe('HashMap', function(){
                 key: 'foo', value: 'bar', next: null
             });
         });
+
+        it('adds items to array slot computed from key', function(){
+            var hashmap,
+                hash;
+
+            hashmap = new HashMap();
+
+            hashmap.set('foo', 'bar');
+
+            hashmap._items[HashMap._hash('foo')]
+                    .should.eql({key: 'foo', value: 'bar', next: null});
+        });
     });
 });
 
