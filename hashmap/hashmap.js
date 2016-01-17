@@ -17,11 +17,11 @@ HashMap._hash = function (key) {
     return parseInt(hash);
 }
 
-HashMap.prototype.set = function () {
+HashMap.prototype.set = function (key) {
     this._items = [];
-    this._items.push({
+    this._items[HashMap._hash(key)] = {
         key: 'foo', value: 'bar', next: null
-    })
+    };
 }
 
 exports.HashMap = HashMap;
