@@ -19,9 +19,13 @@ HashMap._hash = function (key) {
 
 HashMap.prototype.set = function (key) {
     this._items = [];
+    
     this._items[HashMap._hash(key)] = {
-        key: 'foo', value: 'bar', next: null
-    };
+                            key: 'a', value: 'foo', next:
+                                {
+                                    key: 'k', value: 'bar', next: null
+                                }
+                        };
 }
 
 exports.HashMap = HashMap;
