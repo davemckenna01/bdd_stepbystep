@@ -169,5 +169,16 @@ describe('HashMap', function(){
                     );
         });        
     });
+    describe('get', function(){
+        it('returns the value associated with the key', function(){
+            var hashmap;
+
+            hashmap = new HashMap();
+
+            hashmap.set('foo', 'bar');
+
+            hashmap.get('foo').should.eq('bar');
+        });
+    });
 });
 
