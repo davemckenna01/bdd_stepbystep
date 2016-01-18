@@ -40,8 +40,26 @@ HashMap.prototype.set = function (key, value) {
     }
 }
 
-HashMap.prototype.get = function () {
-    return 'bar';
+HashMap.prototype.get = function (key) {
+    var index,
+        current_node,
+        value;
+
+    index = HashMap._hash(key);
+
+    current_node = this._items[index];
+
+    while (current_node) {
+        if (current_node.key === key) {
+            value = current_node.value;
+
+            break;
+        }
+
+        current_node = current_node.next;
+    }
+
+    return value;
 }
 
 exports.HashMap = HashMap;
