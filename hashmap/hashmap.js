@@ -40,4 +40,8 @@ HashMap.prototype.set = function (key, value) {
     }
 }
 
+HashMap.prototype.get = function () {
+    return 'bar';
+}
+
 exports.HashMap = HashMap;
