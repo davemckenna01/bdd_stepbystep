@@ -179,6 +179,20 @@ describe('HashMap', function(){
 
             hashmap.get('foo').should.eq('bar');
         });
+
+        it('returns values from collided keys', function(){
+            var hashmap;
+
+            hashmap = new HashMap();
+
+            hashmap.set('a', 'foo');
+            hashmap.set('k', 'bar');
+            hashmap.set('u', 'baz');
+
+            hashmap.get('a').should.eq('foo');
+            hashmap.get('k').should.eq('bar');
+            hashmap.get('u').should.eq('baz');
+        });
     });
 });
 
