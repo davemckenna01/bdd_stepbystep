@@ -157,17 +157,21 @@ describe('HashMap', function(){
 
             hashmap.set('a', 'foo'); // a => 97 => 7
             hashmap.set('k', 'bar'); // k => 107 => 7
+            hashmap.set('u', 'baz'); // k => 117 => 7
 
             hashmap._items[7]
                     .should.eql(
                         {
                             key: 'a', value: 'foo', next:
                                 {
-                                    key: 'k', value: 'bar', next: null
+                                    key: 'k', value: 'bar', next: {
+
+                                        key: 'u', value: 'baz', next: null
+                                    }
                                 }
                         }
                     );
-        });        
+        });   
     });
     describe('get', function(){
         it('returns the value associated with the key', function(){
